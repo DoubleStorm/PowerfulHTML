@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>FunctionPages</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		body{
+			-webkit-user-select:none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+			word-spacing:1px;
+		}
+		.message{
+			position:fixed;
+			top:0;
+			left:0;
+			padding:5px 0 0 10px;
+			height:55px;
+			width:100%;
+			background:rgb(245,245,245);
+			box-shadow:-10px 15px 15px #aaa;
+		}
+		.title{
+			font-size:32px;
+			color:white;
+			text-shadow:0 0 5px black;
+			display:inline-block;
+		}
+		#tips{
+			display:inline-block;
+			vertical-align:bottom;
+			margin-left:15px;
+			font-size:1rem;
+			color:#666;
+		}
+		.displayArea{
+			width:800px;
+			margin: 50px auto 0 auto;
+		}
+		.displayArea:nth-child(4){
+			margin-top:120px;
+		}
+		.displayArea div{
+			width:100%;
+			display:flew;
+    		display: -webkit-flex;
+			flex-direction: row;
+			flex-wrap:wrap;
+		}
+		.displayArea a{
+			display: inline-block;
+			width:max-content;
+			height: auto;
+			padding: 7px 15px;
+			border:2px solid transparent;
+			font-size:1rem;
+			font-weight:normal;
+			text-decoration:none;
+			white-space:nowrap;
+			text-align:center;
+			color:white;
+			background-clip:padding-box;
+			background-color:#e60000;
+			flex:1;
+		}
+		.displayArea a:hover{
+			border-color: #e60000;
+			background-color:white;
+			color:#e60000;
+		}
+	</style>
+</head>
+<body>
+	<div class="message">
+		<div class="title">网站收藏</div>
+		<div id="tips"></div>
+	</div>
+
+<script src="./links.js"></script>
+<script>
+	var links = theLinks.links;
+	var target = theLinks.target;
+
+	window.onload = function(){
+		for(var i=0;i<links.length;i++){
+			var displayArea = document.createElement('div');
+			document.body.appendChild(displayArea);
+			displayArea.setAttribute('class','displayArea');
+			arrangeLinks(displayArea,links[i]);
+		}
+	}
+	
+	function getTip(name,tip){
+		let tips = document.getElementById("tips");
+		if(name && tip)
+			tips.innerText = name + " : " + tip;
+		else	
+			tips.innerText = "";
+	}
+	function arrangeLinks(area,areaLinks){
+		let middleEl = document.createElement('div');
+		area.appendChild(middleEl);
+		areaLinks.forEach((x)=>{
+			let el = document.createElement('a');
+			el.style.flex = Math.ceil(Math.random()*10);
+			el.setAttribute('href',x.link);
+			if(target == '_blank')
+				el.setAttribute('target','_blank');
+			el.innerText = x.name;
+			middleEl.appendChild(el);
+			if(x.tip){
+				on(el,'mouseover',()=>{
+					getTip(x.name,x.tip);
+				});
+				on(el,'mouseleave',getTip);
+			}
+		})
+	}
+	function on( node, eventType, handler ){
+		node = typeof node == "string" ? document.getElementById(node) : node;
+		if( document.all ){
+			node.attachEvent("on"+eventType,handler);
+		} else {
+			node.addEventListener(eventType,handler,false);
+		}
+	}
+</script>
+</body>
+</html>

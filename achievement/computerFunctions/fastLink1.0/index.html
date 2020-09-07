@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>FunctionPages</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		body{
+			background: url(./asset/img/LOGO.png) no-repeat  10px 35px / 80px 30px;
+			background-position: right 10px top 5px;
+		}
+		.content{
+			width: 800px;
+			margin: 50px auto 20px auto;
+		}
+		#good{
+			width: 100%;
+			height: min-content;
+			border: 1px solid transparent;
+			border-bottom: 10px solid black;
+			overflow: hidden;
+			background: repeating-linear-gradient(45deg,black 0,black 25%,white 0,white 50%) 0 / 1em 1em;
+			/* animation:ants 12s linear infinite; */
+		}
+		#good a{
+			display: inline-block;
+			width: 100%;
+			height: 60px;
+			text-decoration: none;
+			cursor: pointer;
+			background-color: rgb(255, 255, 255);
+			margin-bottom: 1px;
+			transform-origin: center center;
+			color: #999;
+			position: relative;
+			transition: .3s;
+		}
+		#good a:hover{
+			transform: scale(1.2,1.1);
+			background-color: rgb(255, 220, 24);
+			z-index: 999;
+		}
+		@keyframes ants{
+			to {background-position:100%}
+		}
+		#good .leftNode{
+			display: block;
+			width: max-content;
+			margin: 5px auto 0 auto;
+			font-size: 25px;
+			color: #333;
+			line-height: 35px;
+		}
+		#good .rightNode{
+			display: block;
+			position: absolute;
+			right: 5px;
+			bottom: 2px;
+			line-height: 20px;
+			text-align: right;
+		}
+		#gold{
+			border: 1px solid transparent;
+			border-bottom: 10px solid #000;
+			background: repeating-linear-gradient(45deg,black 0,black 25%,white 0,white 50%) 0 / .6em .6em;
+		}
+		#gold table{
+			width: 100%;
+			background-color: white;
+			margin-bottom: 1px;
+		}
+		table caption{
+			text-align: left;
+			color: #666;
+			padding-left: 5px;
+			background-color: white;
+		}
+		table td{
+			text-align: left;
+			width: 150px;
+			height: 50px;
+			padding-left: 20px;
+			box-sizing: border-box;
+			position: relative;
+		}
+		table a{
+			display: inline-block;
+			color: #333;
+			text-decoration: none;
+			cursor: pointer;
+			font-size: 24px;
+			width: 130px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			transform-origin: 20% 50%;
+		}
+		table a:hover{
+			transform: scale(1.5) translate(-10%,-50%);
+			border-radius: 5px;
+			background-color: rgb(255, 220, 24,.7);
+			width: max-content;
+			position: absolute;
+			z-index: 999;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div id="good"></div>
+		<div id="gold"></div>
+	</div>
+<script src="./links.js"></script>
+<script>
+var links = theLinks.links;
+var target = theLinks.target;
+
+function listGood(){
+	var those = links.goodLinks;
+	var site = document.getElementById("good");
+	for(var x of those){
+		var newNode = document.createElement("a");
+		newNode.setAttribute("href",x.link);
+		if(target == '_blank')
+			newNode.setAttribute("target","_blank");
+		site.appendChild(newNode);
+		var leftNode = document.createElement("span");
+		leftNode.setAttribute("class","leftNode");
+		leftNode.innerText = x.name;
+		var rightNode = document.createElement("span");
+		rightNode.setAttribute("class","rightNode");
+		rightNode.innerText = "—— " + x.describe;
+		newNode.appendChild(leftNode);
+		newNode.appendChild(rightNode);
+	}
+}
+function listGold(){
+	var those = links.goldLinks;
+	var site = document.getElementById("gold");
+	for(var x of those){
+		var table = document.createElement("table");
+		site.appendChild(table);
+		var caption = document.createElement("caption");
+		caption.innerText = x.name;
+		var count = 0;
+		table.appendChild(caption);
+		for(var y of x.links){
+			if(count == 0){
+				var tr = document.createElement("tr");
+				table.appendChild(tr);
+			}
+			var td = document.createElement("td");
+			var a = document.createElement("a");
+			td.appendChild(a);
+			a.setAttribute("href",y.link);
+			if(target == '_blank')
+				a.setAttribute("target","_blank");
+			a.innerText = y.name;
+			tr.appendChild(td);
+			count++;
+			if(count == 5)
+				count = 0;
+		}
+		for(;count>0 && count<5;count++){
+			var td = document.createElement("td");
+			tr.appendChild(td);
+		}
+	}
+}
+
+window.onload = function(){
+	listGood();
+	listGold();
+}
+</script>
+</body>
+</html>
