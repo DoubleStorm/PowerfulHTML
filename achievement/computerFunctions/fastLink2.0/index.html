@@ -85,6 +85,7 @@
 	var target = theLinks.target;
 
 	window.onload = function(){
+		tellYouSomeSecret();
 		for(var i=0;i<links.length;i++){
 			var displayArea = document.createElement('div');
 			document.body.appendChild(displayArea);
@@ -93,6 +94,14 @@
 		}
 	}
 	
+	function tellYouSomeSecret(){
+		console.log('这个快捷页面共分四个部分');
+		console.log('第一部分是各种前端开发的教程网站');
+		console.log('第二部分是前端开发过程中可能要用到的工具');
+		console.log('第三部分是我收集的一些其他可能有用的工具');
+		console.log('第四部分是我个人喜欢而收藏的一些网站');
+	}
+
 	function getTip(name,tip){
 		let tips = document.getElementById("tips");
 		if(name && tip)
@@ -102,14 +111,25 @@
 	}
 	function arrangeLinks(area,areaLinks){
 		let middleEl = document.createElement('div');
+		on(middleEl,'contextmenu',(e) => {
+			e.preventDefault();
+			e.stopPropagation();
+		})
 		area.appendChild(middleEl);
 		areaLinks.forEach((x)=>{
 			let el = document.createElement('a');
 			el.style.flex = Math.ceil(Math.random()*10);
-			el.setAttribute('href',x.link);
 			if(target == '_blank')
 				el.setAttribute('target','_blank');
 			el.innerText = x.name;
+			on(el,'mousedown',(e) => {
+				if(e.button == 0){
+					window.location.assign(x.leftClick);
+				}else if(e.button == 2 && x.rightClick){
+					e.stopPropagation();
+					window.location.assign(x.rightClick);
+				}
+			});
 			middleEl.appendChild(el);
 			if(x.tip){
 				on(el,'mouseover',()=>{
