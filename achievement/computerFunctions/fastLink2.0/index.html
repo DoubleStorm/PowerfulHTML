@@ -45,6 +45,11 @@
 		}
 		.displayArea div{
 			width:100%;
+			padding: 2px;
+			background-color: white;
+			overflow: hidden;
+			transition: all 2s ease-in-out;
+			border: 5px solid white;
 			display:flew;
     		display: -webkit-flex;
 			flex-direction: row;
@@ -70,6 +75,21 @@
 			border-color: #e60000;
 			background-color:white;
 			color:#e60000;
+		}
+		.theCurtain{
+			width: max-content;
+			height: 55px;
+			position: fixed;
+			top: 0;
+			line-height: 55px;
+			right: 100%;
+			z-index: 999;
+			background-color: rgb(245,245,245);
+			animation: messageEasyIn 6s ease-in-out;
+		}
+		@keyframes messageEasyIn {
+			0% { right: -30%;}
+			100% { right: 100%;}
 		}
 	</style>
 </head>
@@ -124,10 +144,10 @@
 			el.innerText = x.name;
 			on(el,'mousedown',(e) => {
 				if(e.button == 0){
-					window.location.assign(x.leftClick);
+					jumpTo.call(e.target,x.leftClick);
 				}else if(e.button == 2 && x.rightClick){
 					e.stopPropagation();
-					window.location.assign(x.rightClick);
+					jumpTo.call(e.target,x.rightClick);
 				}
 			});
 			middleEl.appendChild(el);
@@ -138,6 +158,16 @@
 				on(el,'mouseleave',getTip);
 			}
 		})
+	}
+	function jumpTo(url){
+		// let theCurtain = document.createElement('div');
+		// theCurtain.setAttribute('class','theCurtain');
+		// theCurtain.innerHTML = "页面跳转中：" + url;
+		// document.body.appendChild(theCurtain);
+		// this.parentNode.style.backgroundColor = "#a3a3c2";
+		this.parentNode.style.borderRadius = "50px";
+		this.parentNode.style.borderColor = "#e50000";
+		window.location.assign(url);
 	}
 	function on( node, eventType, handler ){
 		node = typeof node == "string" ? document.getElementById(node) : node;
