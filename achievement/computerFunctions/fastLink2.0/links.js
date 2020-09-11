@@ -29,11 +29,16 @@ var theLinks = {
             ,{name:"Can I use",leftClick:"https://caniuse.com/",tip:"查看 W3C 标准在各浏览器上的支持程度"}
             ,{name:"CodePen",leftClick:"https://codepen.io/",tip:"前端代码在线编写"}
             ,{name:"Cool Backgrounds",leftClick:"https://coolbackgrounds.io/",tip:"炫酷背景图片生成器"}
-            ,{name:"BootStrap 模板资源网",leftClick:"http://www.bootstrapmb.com/"}
             ,{name:"HTML 字符实体参考",leftClick:"https://www.w3school.com.cn/tags/html_ref_entities.html"}
             ,{name:"HTML URL 编码字符",leftClick:"https://www.w3school.com.cn/tags/html_ref_urlencode.html"}
             ,{name:"菜鸟工具 SVG 在线编辑器",leftClick:"https://c.runoob.com/more/svgeditor/"}
         ],[
+            {name:"BootStrap 模板资源网",leftClick:"http://www.bootstrapmb.com/"}
+            ,{name:"iconfont",leftClick:"https://www.iconfont.cn",tip:"阿里管理的矢量图标库"}
+            ,{name:"鸠摩搜书",leftClick:"https://www.jiumodiary.com/",tip:"来这找书！好用！"}
+            ,{name:"Pexels",leftClick:"https://www.pexels.com/zh-cn/",tip:"高质量图片下载网站"}
+            ,{name:"CG 资源网",leftClick:"https://www.cgown.com/",tip:"PR、AE 等资源文件下载网站"}
+		],[
             {name:"在线 PS",leftClick:"https://ps.gaoding.com/#/"}
             ,{name:"比特虫",leftClick:"http://www.bitbug.net/",tip:"在线制作 ico 图标"}
             ,{name:"菜鸟工具在线画图",leftClick:"https://c.runoob.com/more/shapefly-diagram/"}
@@ -46,9 +51,6 @@ var theLinks = {
             ,{name:"PDF24 Tools",leftClick:"https://tools.pdf24.org/zh/",tip:"多功能 PDF 文件在线编辑器"}
             ,{name:"小鸡词典",leftClick:"https://jikipedia.com/",tip:"速查当下网络流行语"}
             ,{name:"写作猫",leftClick:"https://xiezuocat.com/#/",tip:"简单写作手法提升"}
-            ,{name:"Pexels",leftClick:"https://www.pexels.com/zh-cn/",tip:"高质量图片下载网站"}
-            ,{name:"CG 资源网",leftClick:"https://www.cgown.com/",tip:"PR、AE 等资源文件下载网站"}
-            ,{name:"鸠摩搜书",leftClick:"https://www.jiumodiary.com/",tip:"来这找书！好用！"}
         ],[
             {name:"HTML5 网页游戏",leftClick:"http://html5.huceo.com/",tip:"HTML5 技术实现网页"}
             ,{name:"WiFi Mouse",leftClick:"http://wifimouse.necta.us/#download",tip:"手机充当电脑鼠标"}
