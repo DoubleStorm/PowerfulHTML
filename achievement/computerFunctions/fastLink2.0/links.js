@@ -5,6 +5,7 @@ var theLinks = {
             ,{name:"",leftClick:"",rightClick="",tip:"（左键中文文档，右键英文文档）"}
             ,{name:"",leftClick:"",tip:""}
             ,{name:"",leftClick:""}
+			,rightClick=""
         */
         [
             {name:"Angular 中文网",leftClick:"https://angular.cn/docs"}
@@ -18,6 +19,8 @@ var theLinks = {
             ,{name:"jSignature 教程",leftClick:"https://blog.csdn.net/liansehai/article/details/80255294"}
             ,{name:"node 中文网",leftClick:"https://www.npmjs.cn/"}
             ,{name:"MDN Web docs",leftClick:"https://developer.mozilla.org/zh-CN/",tip:"源于开发者，服务开发者"}
+            ,{name:"CSS 参考手册",leftClick:"http://css.doyoe.com/",tip:"web 前端开发参考手册系列"}
+            ,{name:"W3C 官网",leftClick:"https://www.chinaw3c.org/",rightClick:"https://www.w3.org/",tip:"查看 W3C 标准"}
         ],[
             {name:"Angular Update Guide",leftClick:"https://update.angular.io/",tip:"Angular 项目升级指导"}
             ,{name:"BootStrap 布局工具",leftClick:"https://www.runoob.com/try/bootstrap/layoutit/",tip:"快速获得 BootStrap 布局结构代码"}
