@@ -107,6 +107,27 @@
 			90%{transform: rotate(660deg);top: 45%;left: 70%;}
 			100%{transform: rotate(720deg);top: 50%;left: 70%;}
 		}
+		.arrowInWay3{
+			animation: arrowIn3 1s ease-in;
+		}
+		@keyframes arrowIn3{
+			0%{transform:rotate(80deg);top: -10%;left: 70%;}
+			10%{transform: rotate(280deg) scale(1.05);top: 0%;left: 74%;}
+			20%{transform: rotate(480deg) scale(1.2);top: 15%;left: 72%;}
+			30%{transform: rotate(680deg) scale(1.35);top: 45%;left: 68%;}
+			42%{transform: rotate(680deg) scale(1.5);top: 45%;left: 68%;}
+			72%{transform: rotate(680deg) scale(1.5);top: 45%;left: 68%;}
+			100%{transform: rotate(720deg);top: 50%;left: 70%;}
+		}
+		.arrowInWay4{
+			animation: arrowIn4 1s ease-in;
+		}
+		@keyframes arrowIn4{
+			0%{transform:scale(2);top: 50%;left: -30%;}
+			70%{transform: scale(2);top: 50%;left: -5%;}
+			96%{transform: scale(2);top: 50%;left: 45%;}
+			100%{transform: rotate(0deg);top: 50%;left: 70%;}
+		}
 	</style>
 </head>
 <body>
@@ -115,7 +136,7 @@
 <script>
 var arrow = null;
 var timer = null;
-var arrowInWays = ['arrowInWay1','arrowInWay2'];
+var arrowInWays = ['arrowInWay1','arrowInWay2','arrowInWay3','arrowInWay4'];
 
 window.onload = function(){
 	var theButton = document.getElementById('theButton');
