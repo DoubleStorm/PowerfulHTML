@@ -14,6 +14,7 @@ var theLinks = {
     */
     links: {
         goodLinks:[
+			{name:"segmentfault",link:"https://segmentfault.com/",describe:"中文技术问题交流网站"},
             {name:"stackoverflow",link:"https://stackoverflow.com/",describe:"这么说吧，一边改 bug 一边学英语"},
             {name:"goobe",link:"https://goobe.io/",describe:"面向程序员的搜索引擎"},
             {name:"Bing",link:"https://cn.bing.com/?FORM=BEHPTB",describe:"微软 Bing 搜索"},

@@ -8,7 +8,7 @@ var theLinks = {
 			,rightClick=""
         */
         [
-            {name:"Angular 中文网",leftClick:"https://angular.cn/docs"}
+            {name:"Angular 官方教程",leftClick:"https://angular.cn/docs",rightClick:"https://next.angular.io/docs",tip:"Angular 官方教程（左键中文文档，右键英文文档）"}
             ,{name:"NG-ZORRO 官网",leftClick:"https://ng.ant.design/docs/introduce/zh"}
             ,{name:"Echarts 官网",leftClick:"https://echarts.apache.org/examples/zh/index.html"}
             ,{name:"ag-Grid 官网",leftClick:"https://www.ag-grid.com/example.php#/"}
