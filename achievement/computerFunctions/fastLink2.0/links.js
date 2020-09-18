@@ -41,6 +41,8 @@ var theLinks = {
             ,{name:"鸠摩搜书",leftClick:"https://www.jiumodiary.com/",tip:"来这找书！好用！"}
             ,{name:"Pexels",leftClick:"https://www.pexels.com/zh-cn/",tip:"高质量图片下载网站"}
             ,{name:"CG 资源网",leftClick:"https://www.cgown.com/",tip:"PR、AE 等资源文件下载网站"}
+            ,{name:"源码之家",leftClick:"https://www.mycodes.net/",tip:"各式各样的源码"}
+            ,{name:"Awesomes",leftClick:"https://www.awesomes.cn/",tip:"前端开发资源库"}
 		],[
             {name:"在线 PS",leftClick:"https://ps.gaoding.com/#/"}
             ,{name:"比特虫",leftClick:"http://www.bitbug.net/",tip:"在线制作 ico 图标"}

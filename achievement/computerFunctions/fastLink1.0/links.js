@@ -22,7 +22,6 @@ var theLinks = {
             {name:"菜鸟工具",link:"https://c.runoob.com/",describe:"多种工具"},
             {name:"TOOLFK",link:"https://www.toolfk.com/",describe:"各种工具"},
             {name:"资源狗",link:"http://www.ziyuangou.com/",describe:"写这个网页的灵感来源"},
-            {name:"找到 AI",link:"https://zhaodao.ai/",describe:"用AI来找点乐子"}
         ],
         goldLinks:[{
             name:"生活社区",
@@ -30,7 +29,8 @@ var theLinks = {
                 {name:"哔哩哔哩",link:"https://www.bilibili.com/"},
                 {name:"微博",link:"https://weibo.com/"},
                 {name:"知乎",link:"https://www.zhihu.com/"},
-                {name:"场库",link:"https://www.vmovier.com/"}
+                {name:"场库",link:"https://www.vmovier.com/"},
+				{name:"找到 AI",link:"https://zhaodao.ai/"}
             ]
         },{
             name:"持续好好学习",
@@ -50,15 +50,18 @@ var theLinks = {
                 {name:"CSDN",link:"https://www.csdn.net"},
                 {name:"菜鸟教程",link:"https://www.runoob.com/"},
                 {name:"W3school",link:"https://www.w3school.com.cn/index.html"},
-                {name:"源码之家",link:"https://www.mycodes.net/"},
                 {name:"w3cschool",link:"https://www.w3cschool.cn/"},
                 {name:"how2j.cn",link:"https://how2j.cn/"}
             ]
         },{
             name:"技术学习",
             links:[
+                {name:"alloyteam",link:"http://www.alloyteam.com/"},
+                {name:"美团技术团队",link:"https://tech.meituan.com/"},
                 {name:"优质的中文前端博客",link:"https://github.com/FrankFang/best-chinese-front-end-blogs"},
+                {name:"大漠",link:"https://www.w3cplus.com/"},
                 {name:"廖雪峰的官方网站",link:"https://www.liaoxuefeng.com/"},
+                {name:"张鑫旭的个人主页",link:"https://www.zhangxinxu.com/"},
                 {name:"柳婼 の blog",link:"https://www.liuchuo.net/"}
             ]
         },{
@@ -73,7 +76,8 @@ var theLinks = {
             links:[
                 {name:"80s手机电影网",link:"https://www.80s.tw/"},
                 {name:"80S电影网",link:"http://80smp4.cc/"},
-                {name:"电影天堂",link:"http://www.kk2w1.com/"}
+                {name:"电影天堂",link:"http://www.kk2w1.com/"},
+                {name:"人人影视",link:"http://www.renren163.com/"}
             ]
         },{
             name:"看动漫",
