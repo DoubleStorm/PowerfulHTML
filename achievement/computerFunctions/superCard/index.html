@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>FunctionPages</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.cards{
+			width: 860px;
+			height: 250px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.card{
+			width: 200px;
+			height: 250px;
+			position: relative;
+		}
+		.card .face{
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			border-radius: 30px;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: all .6s linear;
+			backface-visibility: hidden;
+		}
+		.card .frontEnd{
+			z-index: 6;
+			background-color: rgb(250, 250, 250);
+			transform: rotateY(-180deg);
+		}
+		.card .backEnd{
+			z-index: 8;
+			background: 
+				repeating-linear-gradient(50deg,transparent 0,transparent 49%,white 0,white 51%,transparent 0) 0 0/ 45px 50px,
+				repeating-linear-gradient(-50deg,transparent 0,transparent 49%,white 0,white 51%,transparent 0) 0 0/ 45px 50px,
+				rgb(70, 123, 184);
+		}
+		.frontEnd span{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			line-height: 250px;
+			font-size: 180px;
+			font-weight: bold;
+			text-align: center;
+		}
+		.red{color: rgb(255, 66, 41);}
+		.green{color: rgb(113, 243, 96);}
+		.orange{color: rgb(252, 108, 25);}
+		.blue{color: rgb(89, 203, 255);}
+		.overturn .frontEnd{
+			z-index: 8;
+			transform: rotateY(0);
+		}
+		.overturn .backEnd{
+			z-index: 6;
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="cards">
+		<div class="card">
+			<div class="face frontEnd">
+				<span class="red">H</span>
+			</div>
+			<div class="face backEnd"></div>
+		</div>
+		<div class="card">
+			<div class="face frontEnd">
+				<span class="green">T</span>
+			</div>
+			<div class="face backEnd"></div>
+		</div>
+		<div class="card">
+			<div class="face frontEnd">
+				<span class="orange">M</span>
+			</div>
+			<div class="face backEnd"></div>
+		</div>
+		<div class="card">
+			<div class="face frontEnd">
+				<span class="blue">L</span>
+			</div>
+			<div class="face backEnd"></div>
+		</div>
+	</div>
+<script>
+var flags = [true,true,true,true]
+window.onload = function(){
+	let cards = document.getElementsByClassName('card');
+	for(let i in cards){
+		cards.item(i).addEventListener('mouseover',()=>{
+			cards.item(i).setAttribute('class','card overturn');
+			flags[i] = false;
+			setTimeout(()=>{
+				flags[i] = true;
+			},500);
+		})
+		cards.item(i).addEventListener('mouseleave',()=>{
+			if(!flags[i]){
+				setTimeout(()=>{
+					cards.item(i).setAttribute('class','card');
+				},500)
+			}else{
+				cards.item(i).setAttribute('class','card');
+			}
+		})
+	}
+}
+</script>
+</body>
+</html>
