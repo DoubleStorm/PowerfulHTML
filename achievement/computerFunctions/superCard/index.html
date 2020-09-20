@@ -14,6 +14,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			-moz-user-select: none;
+			-webkit-user-select: none;
 		}
 		.cards{
 			width: 860px;
@@ -25,6 +27,7 @@
 			width: 200px;
 			height: 250px;
 			position: relative;
+
 		}
 		.card .face{
 			box-sizing: border-box;
@@ -37,6 +40,7 @@
 			left: 0;
 			transition: all .6s linear;
 			backface-visibility: hidden;
+			box-shadow: 2px 2px 4px #333;
 		}
 		.card .frontEnd{
 			z-index: 6;
