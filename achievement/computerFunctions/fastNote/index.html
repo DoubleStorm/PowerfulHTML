@@ -60,7 +60,7 @@
 			border-right-width: 2px;
 		}
 		.notes .selected{
-			width: 300px;
+			width: 320px;
 		}
 		.note span.title{
 			display: inline-block;
@@ -140,17 +140,37 @@
 		.blue{
 			border-color: rgb(23, 123, 253);
 			background-color: rgb(132, 185, 255);
-			color: rgb(1, 19, 46);
+			color: rgb(0, 30, 75);
 		}
 		.red{
 			border-color: rgb(255, 32, 32);
 			background-color: rgb(255, 125, 125);
-			color: rgb(73, 0, 0);
+			color: rgb(114, 0, 0);
 		}
 		.green{
 			border-color: rgb(27, 231, 44);
 			background-color: rgb(142, 233, 149);
-			color: rgb(0, 78, 7);
+			color: rgb(0, 104, 9);
+		}
+		.orange{
+			border-color: rgb(255, 149, 28);
+			background-color: rgb(255, 184, 103);
+			color: rgb(104, 55, 0);
+		}
+		.gray{
+			border-color: rgb(99, 99, 99);
+			background-color: rgb(161, 161, 161);
+			color: rgb(61, 61, 61);
+		}
+		.peach{
+			border-color: rgb(255, 81, 162);
+			background-color: rgb(255, 172, 211);
+			color: rgb(114, 1, 53);
+		}
+		.violet{
+			border-color: rgb(203, 33, 255);
+			background-color: rgb(225, 126, 255);
+			color: rgb(76, 0, 99);
 		}
 		.tags span{
 			display: block;
@@ -189,7 +209,7 @@
 	</div>
 <script>
 var SETTING = {
-	noteColor: ['blue','red','green'],  // 新建 note 的可用样式
+	noteColor: ['blue','red','green','orange','gray','peach','violet'],  // 新建 note 的可用样式
 	noteCount: 7, 	// 最多允许创建的分类数量
 	taskCount: 12,  // 给个分类下允许创建的任务数量
 	nowNote:0,  	// 当前 note 的数量
@@ -225,25 +245,13 @@ if(storageNotes)
 	storageNotes = JSON.parse(storageNotes);
 else
 	storageNotes = [
-		{
-			name: '工作',
-			tasks: [
-				{ name: '任务1', tag: ['urgent','insistent','helpful'] },
-				{ name: '任务2', tag: [ ] },
-				{ name: '任务3', tag: [ ] },
-			]
-		},{
-			name: '学习',
-			tasks: [
-				{ name: '任务4', tag: ['insistent'] },
-				{ name: '任务5', tag: [ ] },
-			]
-		},{
-			name: '兴趣',
-			tasks: [
-				{ name: '任务6', tag: ['helpful'] },
-			]
-		}
+		{name: 'blue',tasks:[{ name: '蓝色的我是忧郁的', tag:['urgent']}]},
+		{name: 'red',tasks:[{ name: '但我依旧向往着火红的太阳',tag:['insistent']}]},
+		{name: 'green',tasks:[{ name: '因为它能让大地变得翠绿',tag:['helpful']}]},
+		{name: 'orange',tasks:[{ name: '能让橘树长出嫩果',tag:['urgent','insistent','helpful']}]},
+		{name: 'gray',tasks:[{ name: '能让我片刻忘却心里灰色的阴霾',tag:['urgent','insistent']}]},
+		{name: 'peach',tasks:[{ name: '终于现在，遇见了桃红色的你',tag:['insistent','helpful']}]},
+		{name: 'violet',tasks:[{ name: '我鼓起勇气对你说:“紫薯两块钱一斤”',tag:['urgent','helpful']}]}		
 	];
 
 // storageNotes 对象的存储格式如下：
