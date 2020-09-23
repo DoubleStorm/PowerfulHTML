@@ -14,27 +14,27 @@ var theLinks = {
             ,{name:"ag-Grid 官网",leftClick:"https://www.ag-grid.com/example.php#/"}
             ,{name:"RxJS 官方教程",leftClick:"https://cn.rx.js.org/manual/overview.html",rightClick:"https://rxjs.dev/guide/overview",tip:"多学学JS异步编程的其他方式（左键中文文档，右键英文文档）"}
             ,{name:"Sass 中文文档",leftClick:"https://www.sass.hk/docs/"}
-            ,{name:"Highcharts 官方教程",leftClick:"https://www.highcharts.com.cn/docs/start-introduction"}
-            ,{name:"jqcloud 教程",leftClick:"https://blog.csdn.net/qq_21895079/article/details/76853384"}
-            ,{name:"jSignature 教程",leftClick:"https://blog.csdn.net/liansehai/article/details/80255294"}
             ,{name:"node 中文网",leftClick:"https://www.npmjs.cn/"}
             ,{name:"MDN Web docs",leftClick:"https://developer.mozilla.org/zh-CN/",tip:"源于开发者，服务开发者"}
             ,{name:"CSS 参考手册",leftClick:"http://css.doyoe.com/",tip:"web 前端开发参考手册系列"}
             ,{name:"W3C 官网",leftClick:"https://www.chinaw3c.org/",rightClick:"https://www.w3.org/",tip:"查看 W3C 标准"}
+            ,{name:"HTML 字符实体参考",leftClick:"https://www.w3school.com.cn/tags/html_ref_entities.html"}
+            ,{name:"HTML URL 编码字符",leftClick:"https://www.w3school.com.cn/tags/html_ref_urlencode.html"}
+            ,{name:"Highcharts 官方教程",leftClick:"https://www.highcharts.com.cn/docs/start-introduction"}
+            ,{name:"FontAwesome 参考",leftClick:"https://www.runoob.com/font-awesome/fontawesome-reference.html",tip:"FontAwesome 图标使用参考"}
+            ,{name:"Animate.css 参考",leftClick:"http://www.jq22.com/yanshi819",tip:"Animate.css 动画库使用参考"}
+            ,{name:"jqcloud 教程",leftClick:"https://blog.csdn.net/qq_21895079/article/details/76853384"}
+            ,{name:"jSignature 教程",leftClick:"https://blog.csdn.net/liansehai/article/details/80255294"}
         ],[
             {name:"Angular Update Guide",leftClick:"https://update.angular.io/",tip:"Angular 项目升级指导"}
             ,{name:"BootStrap 布局工具",leftClick:"https://www.runoob.com/try/bootstrap/layoutit/",tip:"快速获得 BootStrap 布局结构代码"}
             ,{name:"BootStrap 图标工具",leftClick:"https://www.runoob.com/try/demo_source/bootstrap-glyph-customization.htm",tip:"快速获得 BootStrap 图标"}
             ,{name:"HTML 字符实体转换",leftClick:"https://c.runoob.com/front-end/691",tip:"快速将 HTML 代码中的特殊符号转换成字符实体"}
             ,{name:"CSS 拾色器",leftClick:"https://www.runoob.com/tags/html-colorpicker.html"}
-            ,{name:"FontAwesome 参考",leftClick:"https://www.runoob.com/font-awesome/fontawesome-reference.html",tip:"FontAwesome 图标使用参考"}
-            ,{name:"Animate.css 参考",leftClick:"http://www.jq22.com/yanshi819",tip:"Animate.css 动画库使用参考"}
             ,{name:"Can I use",leftClick:"https://caniuse.com/",tip:"查看 W3C 标准在各浏览器上的支持程度"}
-            ,{name:"CodePen",leftClick:"https://codepen.io/",tip:"前端代码在线编写"}
             ,{name:"Cool Backgrounds",leftClick:"https://coolbackgrounds.io/",tip:"炫酷背景图片生成器"}
-            ,{name:"HTML 字符实体参考",leftClick:"https://www.w3school.com.cn/tags/html_ref_entities.html"}
-            ,{name:"HTML URL 编码字符",leftClick:"https://www.w3school.com.cn/tags/html_ref_urlencode.html"}
-            ,{name:"菜鸟工具 SVG 在线编辑器",leftClick:"https://c.runoob.com/more/svgeditor/"}
+            ,{name:"CodePen",leftClick:"https://codepen.io/",tip:"一个在线前端代码编辑器"}
+            ,{name:"JS Bin",leftClick:"https://jsbin.com/",tip:"另一个在线前端代码编辑器"}
         ],[
             {name:"BootStrap 模板资源网",leftClick:"http://www.bootstrapmb.com/"}
             ,{name:"iconfont",leftClick:"https://www.iconfont.cn",tip:"阿里管理的矢量图标库"}
