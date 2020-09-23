@@ -15,12 +15,29 @@
 			height: 100vh;
 			margin: 0;
 			padding: 0;
+			box-sizing: border-box;
+			user-select:none;
+			position:relative;
+		}
+		.title{
+			width:100%;
+			height: max-content;
+			text-align:center;
+			font-size:32px;
+			position:absolute;
+			top:50px;
+			left:0;
+			color: rgba(300,180,180,.7);
 		}
 	</style>
 </head>
 <body>
 
-<div class="MXXBH_clickFun"></div>
+<div class="MXXBH_clickFun">
+	<div class="title">
+		点击任意区域
+	</div>
+</div>
 
 <script src="./clickFun.js"></script>
 <script>
