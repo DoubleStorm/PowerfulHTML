@@ -43,6 +43,21 @@
 			line-height: 14px;
 			padding: 0;
 		}
+		.notes .downloadFile{
+			position: absolute;
+			right: -30px;
+			bottom: 0;
+			padding: 0;
+		}
+		.notes .inputFile{
+			position: absolute;
+			left: -30px;
+			top: 0;
+		}
+		.inputFile input{
+			position: absolute;
+			display: none;
+		}
 		.notes .note{
 			height: 450px;
 			width: 130px;
@@ -206,6 +221,19 @@
 				<path d="M511.17819 1023.449171C232.458621 1030.059121-1.643784 782.185986 0.008703 508.974708 1.661191 236.865089 239.068571-1.64395 516.135653 0.008538c271.55879 1.652488 510.618658 239.059868 508.966171 516.12695C1023.449336 787.694278 787.694443 1031.711609 511.17819 1023.449171zM491.34834 97.505304c-195.544362-1.652488-418.630184 188.383583-394.944528 457.188227 15.974046 181.222803 190.03607 398.249504 459.942373 374.013019 181.773632-16.524876 396.046187-190.586899 371.809703-459.391544C911.080182 278.177278 730.408208 79.327941 491.34834 97.505304z" p-id="5426"></path><path d="M560.201988 362.454144c0 27.541459 0.550829 55.082919 0 82.624378-0.550829 15.423217 5.508292 20.38068 20.38068 19.829851 55.082919-0.550829 110.165838 0 165.248757-0.550829 15.974046 0 22.583997 4.406634 21.482338 20.931509-1.101658 18.728192-1.101658 37.456385 0 55.633748 0.550829 14.872388-5.508292 19.279022-19.279022 18.728192-55.082919-0.550829-110.165838 0-165.248757-0.550829-16.524876 0-23.134826 4.957463-22.583997 22.033168 1.101658 54.53209 0 108.51335 0.550829 163.04544 0.550829 17.626534-6.059121 23.134826-22.583997 22.033168-17.075705-1.101658-34.702239-1.101658-51.777944 0-15.974046 1.101658-21.482338-4.957463-21.482338-21.482338 0.550829-53.430431-0.550829-107.411692 0.550829-160.842123 0.550829-20.38068-6.60995-25.888972-25.888972-25.338143-53.430431 1.101658-107.411692 0-160.842123 0.550829-14.872388 0-21.482338-4.406634-20.38068-19.829851 1.101658-18.728192 1.101658-37.456385 0-55.633748-1.101658-15.974046 5.508292-19.829851 20.38068-19.829851 54.53209 0.550829 108.51335-0.550829 163.04544 0.550829 17.626534 0.550829 24.236484-4.406634 23.685655-23.134826-1.101658-54.53209 0-108.51335-0.550829-163.04544 0-16.524876 5.508292-22.033168 21.482338-21.482338 17.626534 1.101658 35.803897 1.101658 53.430431 0 14.872388-0.550829 20.931509 4.406634 20.38068 19.829851C559.651159 306.269567 560.201988 334.361856 560.201988 362.454144z" p-id="5427"></path>
 			</svg>
 		</span>
+		<span class="downloadFile displayNone" onclick="downloadFile();">
+			<svg t="1600915840747" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3557" width="25" height="25">
+				<path d="M640 145.664V298.666667h153.002667L640 145.664zM810.666667 384h-170.666667a85.333333 85.333333 0 0 1-85.333333-85.333333V128H213.333333v768h597.333334V384zM213.333333 42.666667h444.330667L896 281.002667V896a85.333333 85.333333 0 0 1-85.333333 85.333333H213.333333a85.333333 85.333333 0 0 1-85.333333-85.333333V128a85.333333 85.333333 0 0 1 85.333333-85.333333z m256 579.669333V426.666667h85.333334v195.669333l55.168-55.168 60.330666 60.330667L512 785.664l-158.165333-158.165333 60.330666-60.330667L469.333333 622.336z" p-id="3558"></path>
+			</svg>
+		</span>
+		<span class="inputFile displayNone" onclick="inputFile();">
+			<input id="fileInput" type="file" accept="application/json" />
+			<label for="fileInput">
+				<svg t="1600918373868" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10812" width="25" height="25">
+					<path d="M853.186434 1024H170.651977a75.837162 75.837162 0 0 1-75.837162-75.837162V76.035476a75.837162 75.837162 0 0 1 75.837162-75.837162h490.666437a39.397406 39.397406 0 0 1 31.472422 10.95847L916.88965 235.293516a38.563197 38.563197 0 0 1 10.996388 30.334865H929.023596v682.534457a75.837162 75.837162 0 0 1-75.837162 75.837162zM663.593529 94.160558V265.628381h171.391986zM853.186434 341.465543h-227.511486a37.918581 37.918581 0 0 1-37.918581-37.918581V76.035476H170.651977v872.127362h682.534457V341.465543zM398.163462 606.895609h75.837162v-75.837161a37.918581 37.918581 0 0 1 75.837162 0v75.837161h75.837162a37.918581 37.918581 0 0 1 0 75.837162h-75.837162v75.837162a37.918581 37.918581 0 0 1-75.837162 0v-75.837162H398.163462a37.918581 37.918581 0 0 1 0-75.837162z" p-id="10813"></path>
+				</svg>
+			</label>
+		</span>
 	</div>
 <script>
 var SETTING = {
@@ -266,7 +294,58 @@ else
 // 	},
 // 	...
 // ]
-
+function fileTesting(cont){
+	var flag = false;
+	try{
+		var contJSON = JSON.parse(cont);
+		if(contJSON instanceof Array && contJSON.length){
+			flag = true;
+			contJSON.forEach((x)=>{
+				if(!x.name || !x.tasks){
+					flag = false;
+				}
+			})
+		}
+	}catch(e){
+		console.log("文档不能解析成 JSON 格式")
+	}
+	return flag;
+}
+function inputFile(){
+	if(event.target == document.querySelector(".inputFile input")){
+		if(!confirm("-导入 JSON 格式资源文件完成内容导入-")){
+			event.preventDefault()
+			event.stopPropagation();
+		}else{
+			var input = document.getElementById("fileInput");
+			input.onchange = function(){
+				var reader = new FileReader();
+				reader.readAsText(this.files[0],'utf-8');
+				reader.onload = function(){
+					if(fileTesting(this.result)){
+						var cont = JSON.parse(this.result);
+						removeContent();
+						createContent(cont,1);
+					}
+				}
+			}
+		}
+	}
+}
+function downloadFile(){
+	if(confirm("-即将下载便签内容-")){
+		storageContent();
+		var cont = localStorage.getItem('storageNotes');
+		var eleLink = document.createElement('a');
+    	eleLink.download = "便签内容 JSON 文件（可用于直接导入读取）.json";
+    	eleLink.style.display = 'none';
+    	var blob = new Blob([cont]);
+    	eleLink.href = URL.createObjectURL(blob);
+		document.body.appendChild(eleLink);
+		eleLink.click();
+		document.body.removeChild(eleLink);
+	}
+}
 function addTask(obj){
 	var note = obj.parentNode;
 	if(SETTING.taskCount == SETTING.nowTask[note.getAttribute('data-index')]){
@@ -359,6 +438,10 @@ function deleteNote(obj){
 function toggleSetNote(){
 	var addButton = document.getElementsByClassName('addNote').item(0);
 	toggleClass(addButton,'displayNone');
+	var loadButton = document.getElementsByClassName('downloadFile').item(0);
+	toggleClass(loadButton,'displayNone');
+	var inputButton = document.getElementsByClassName('inputFile').item(0);
+	toggleClass(inputButton,'displayNone');
 	var deleteButtons = document.getElementsByClassName('deleteNote');
 	for(let x of deleteButtons){
 		toggleClass(x,'displayNone');
@@ -420,13 +503,23 @@ function countAll(){
 	nowSelected = document.getElementsByClassName('note').item(0);
 	toggleClass(nowSelected,'selected')
 }
-window.onload = function(){
-	storageNotes.forEach((x)=>{
-		createDomWithData(x);
+function createContent(objArray,flag = 0){
+	objArray.forEach((x)=>{
+		createDomWithData(x,flag);
 	})
 	countAll();
 }
-window.onbeforeunload = function(){
+function removeContent(){
+	SETTING.nowNote = 0;
+	SETTING.nowTask = [];
+	nowSelected = null;
+	var notesParent = document.getElementsByClassName('notes').item(0);
+	var notes = document.getElementsByClassName('note');
+	for(var x of Array.from(notes)){
+		notesParent.removeChild(x);
+	}
+}
+function storageContent(){
 	var notesData = [];
 	var notes = document.getElementsByClassName('note');
 	for(let x of notes){
@@ -448,6 +541,10 @@ window.onbeforeunload = function(){
 	}
 	localStorage.setItem('storageNotes',JSON.stringify(notesData));
 }
+window.onload = function(){
+	createContent(storageNotes);
+}
+window.onbeforeunload = storageContent;
 </script>
 </body>
 </html>
