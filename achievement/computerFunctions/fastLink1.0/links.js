@@ -14,16 +14,18 @@ var theLinks = {
     */
     links: {
         goodLinks:[
-			{name:"segmentfault",link:"https://segmentfault.com/",describe:"中文技术问题交流网站"},
-            {name:"stackoverflow",link:"https://stackoverflow.com/",describe:"这么说吧，一边改 bug 一边学英语"},
-            {name:"goobe",link:"https://goobe.io/",describe:"面向程序员的搜索引擎"},
-            {name:"Bing",link:"https://cn.bing.com/?FORM=BEHPTB",describe:"微软 Bing 搜索"},
-            {name:"百度",link:"https://baike.baidu.com/"},
             {name:"菜鸟工具",link:"https://c.runoob.com/",describe:"多种工具"},
             {name:"TOOLFK",link:"https://www.toolfk.com/",describe:"各种工具"},
             {name:"资源狗",link:"http://www.ziyuangou.com/",describe:"写这个网页的灵感来源"},
         ],
         goldLinks:[{
+            name:"搜索主页",
+            links:[
+				{name:"goobe",link:"https://goobe.io/"},
+				{name:"Bing",link:"https://cn.bing.com/?FORM=BEHPTB"},
+				{name:"百度",link:"https://baike.baidu.com/"},
+            ]
+        },{
             name:"生活社区",
             links:[
                 {name:"哔哩哔哩",link:"https://www.bilibili.com/"},
@@ -43,6 +45,8 @@ var theLinks = {
         },{
             name:"技术交流社区",
             links:[
+				{name:"segmentfault",link:"https://segmentfault.com/"},
+				{name:"stackoverflow",link:"https://stackoverflow.com/"},
                 {name:"GitHub",link:"https://github.com/"},
                 {name:"npm 官网",link:"https://www.npmjs.com/"},
                 {name:"力扣",link:"https://leetcode-cn.com/problemset/all/"},
@@ -63,6 +67,12 @@ var theLinks = {
                 {name:"廖雪峰的官方网站",link:"https://www.liaoxuefeng.com/"},
                 {name:"张鑫旭的个人主页",link:"https://www.zhangxinxu.com/"},
                 {name:"柳婼 の blog",link:"https://www.liuchuo.net/"}
+            ]
+        },{
+            name:"学学设计",
+            links:[
+				{name:"站酷",link:"https://www.zcool.com.cn/"},
+				{name:"花瓣",link:"https://huaban.com/"}
             ]
         },{
             name:"偶尔打打游戏",
