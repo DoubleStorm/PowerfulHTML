@@ -24,6 +24,9 @@ var theLinks = {
 				{name:"goobe",link:"https://goobe.io/"},
 				{name:"Bing",link:"https://cn.bing.com/?FORM=BEHPTB"},
 				{name:"百度",link:"https://baike.baidu.com/"},
+				{name:"秘迹搜索",link:"https://mijisou.com/"},
+				{name:"Lookao",link:"https://lookao.com/"},
+				{name:"DogeDoge",link:"https://www.dogedoge.com/"},
             ]
         },{
             name:"生活社区",
