@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>FunctionPages</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		.scratchCard{
+			width: 600px;
+			height: 400px;
+			padding: 30px;
+			margin: 10px auto;
+			border-radius: 5px;
+			border: 2px solid rgba(214, 214, 214, 0.925);
+			background-color: rgb(250, 174, 112);
+			position: relative;
+		}
+		.title{
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			font-size: 36px;
+			font-weight: bold;
+			color: rgb(248, 238, 226);
+		}
+		.title span{
+			font-size: 12px;
+			line-height: normal;
+			vertical-align:text-bottom;
+			font-weight: normal;
+		}
+		canvas{
+			width: 600px;
+			height: 320px;
+			outline: 4px solid rgb(243, 243, 243);
+		}
+		#scraping{
+			position: absolute;
+			bottom: 30px;
+			left: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="scratchCard">
+		<div class="title">密西西比何官方特别<span>低</span>概率刮刮乐 </div>
+		<canvas id="background" width="600" height="320"></canvas>
+		<canvas id="scraping" width="600" height="320"></canvas>
+	</div>
+	<img style="display: none;" src="./asset/img/ICON-m.png" alt="背景图片" />
+<script>
+function drawBackground(ctx){
+	ctx.fillStyle = "#fff";
+	ctx.beginPath();
+	ctx.fillRect(0,0,600,320);
+	var backgroundImg = document.getElementsByTagName('img').item(0);
+	ctx.drawImage(backgroundImg,0,0,490,300,120,0,600,320);
+	ctx.fillStyle = "#b33";
+	ctx.font = '20px Calibri';
+	if(Math.random()*1000 < 10){
+		ctx.font = '35px Calibri';
+		ctx.fillText("特等奖！",400,100);
+		ctx.font = '15px Calibri';
+		ctx.fillText("奖励再抽一张",450,125);
+	}else{
+		ctx.fillText("谢谢惠顾",410,100);
+	}
+	ctx.closePath();
+}
+function addCurtain(ctx){
+	ctx.fillStyle = "#999";
+	ctx.beginPath();
+	ctx.fillRect(0,0,600,320)
+	ctx.closePath();
+}
+function scrape(ctx,x,y){
+	ctx.save()
+	ctx.beginPath();
+	ctx.arc(x,y,40,0,2*Math.PI);
+	ctx.clip();
+	ctx.clearRect(0,0,600,320);
+	ctx.restore();
+}
+window.onload = function(){
+	var canvas = document.getElementById('background');
+	var ctx = canvas.getContext('2d');
+	drawBackground(ctx);
+	canvas = document.getElementById('scraping');
+	ctx = canvas.getContext('2d');
+	addCurtain(ctx);
+	canvas.addEventListener('mousemove',(e)=>{
+		scrape(ctx,e.offsetX,e.offsetY)
+	})
+}
+</script>
+</body>
+</html>
