@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>FunctionPages</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		.content{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			height: max-content;
+			flex-wrap: wrap;
+		}
+		.background{
+			display: block;
+			margin-top: 20px;
+			width: 350px;
+			height: 250px;
+			box-shadow: 0 0 0 2px rgb(206, 206, 206);
+			flex: none;
+		}
+		.hole{
+			background: 
+				radial-gradient(black 15%,transparent 16%) 0 0,
+				radial-gradient(black 15%,transparent 16%) 8px 8px,
+				radial-gradient(rgba(255,255,255,.1) 15%,transparent 20%) 0 1px,
+				radial-gradient(rgba(255,255,255,.1) 15%,transparent 20%) 8px 9px;
+			background-color: #282828;
+			background-size: 16px 16px;
+			background-repeat: repeat;
+		}
+		.checkerboard{
+			background: 
+				radial-gradient(at center,#333 3px,transparent 4px) 8px 8px / 80px 80px,
+				linear-gradient(0,#333 1px,transparent 0) 0 0 / 16px 16px,
+				linear-gradient(90deg,#333 1px,transparent 0) 0 0 / 16px 16px;
+			background-color: #bb6830;
+		}
+		.rock1{
+			background: 
+				linear-gradient(-45deg,transparent 25%,#333 0,#333 75%,transparent 0) 0 0/16px 16px,
+				rgb(105, 83, 83);
+		}
+		.ant{
+			background: 
+				linear-gradient(-45deg,#333 25%,#aaa 0,#aaa 50%,#333 50%,#333 75%,#aaa 0) 0 0/16px 16px;
+		}
+		.moveAnt{
+			border: 2px solid transparent;
+			box-sizing: border-box;
+			background: 
+				linear-gradient(white,white) content-box,
+				linear-gradient(-45deg,#333 25%,transparent 0,transparent 50%,#333 50%,#333 75%,transparent 0) border-box 0 0 /16px 16px;
+			animation: moveAnt .6s linear infinite;
+		}
+		@keyframes moveAnt{
+			from{background-position: 0 0;}
+			to{background-position: 0 16px;}
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="background hole"></div>
+		<div class="background checkerboard"></div>
+		<div class="background rock1"></div>
+		<div class="background ant"></div>
+		<div class="background moveAnt"></div>
+	</div>
+
+<script>
+
+</script>
+</body>
+</html>

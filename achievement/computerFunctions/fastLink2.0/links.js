@@ -30,6 +30,7 @@ var theLinks = {
             ,{name:"BootStrap 图标工具",leftClick:"https://www.runoob.com/try/demo_source/bootstrap-glyph-customization.htm",tip:"快速获得 BootStrap 图标"}
             ,{name:"HTML 字符实体转换",leftClick:"https://c.runoob.com/front-end/691",tip:"快速将 HTML 代码中的特殊符号转换成字符实体"}
             ,{name:"CSS 拾色器",leftClick:"https://www.runoob.com/tags/html-colorpicker.html"}
+            ,{name:"CSS Gradient Generator",leftClick:"https://www.colorzilla.com/gradient-editor/",tip:"过渡背景效果代码生成器"}
             ,{name:"Cool Backgrounds",leftClick:"https://coolbackgrounds.io/",tip:"炫酷背景图片生成器"}
             ,{name:"CodePen",leftClick:"https://codepen.io/",tip:"一个在线前端代码编辑器"}
             ,{name:"JS Bin",leftClick:"https://jsbin.com/",tip:"另一个在线前端代码编辑器"}
