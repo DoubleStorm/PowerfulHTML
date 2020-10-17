@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>看谁能中奖</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+	body{
+		background: rgb(255, 255, 255);
+	}
+	</style>
+</head>
+<body>
+
+
+<script>
+var DATA = {
+	cans : [],
+	number : 0
+}
+
+function Candidate(no,name,prob){
+	this.no = no;
+	this.name = name;
+	this.prob = prob;
+
+	this.addProb = function(){
+		this.prob += 5;
+	}
+	this.reduceProb = function(){
+		this.prob -= 5;
+		if(this.prob < 0)
+			this.prob = 0;
+	}
+	this.rename = function(newName){
+		this.name = newName;
+	}
+}
+
+window.onload = function(){
+	
+}
+</script>
+</body>
+</html>
