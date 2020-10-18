@@ -9,10 +9,102 @@
 	body{
 		background: rgb(255, 255, 255);
 	}
+	.candidateList{
+		height: 90vh;
+		width: 90vw;
+		min-width: 600px;
+		min-height: 300px;
+		position: absolute;
+		top: 5vh;
+		left: 0;
+		box-sizing: border-box;
+		border: 2px solid rgb(58, 30, 3);
+		border-radius: 15px;
+		padding: 20px;
+		background-color: rgb(255, 251, 240);
+	}
+	.candidateList .candidates{
+		width: 100%;
+		border-width: 1px;
+		border-collapse:collapse;
+	}
+	table tr{
+		color: rgb(92, 86, 37);
+		height: 25px;
+		line-height: 25px;
+	}
+	table tr:nth-child(even){
+		background-color: rgb(243, 239, 235);
+	}
+	table tr td,table tr th{
+		padding-left: 40px;
+		text-align: left;
+	}
+	table tr th{
+		border-bottom: 1px solid rgb(172, 65, 16);
+	}
+	.search{
+		width: 50%;
+		float: right;
+		margin-right: 10px;
+	}
+	.search input{
+		width: 75%;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid rgb(202, 73, 13);
+		color: rgb(80, 74, 19);
+		font-size: 16px;
+		padding-left: 5px;
+		padding-right: 5px;
+		box-sizing: border-box;
+	}
+	.search button{
+		width: 20%;
+		background: transparent;
+		border: 1px solid  rgb(85, 82, 57);
+		border-radius: 3px;
+		font-size: 14px;
+		color: rgb(58, 54, 23);
+		text-overflow: clip;
+		white-space: nowrap;
+		overflow: hidden;
+		padding: 0;
+		text-align: center;
+	}
+	.search button:hover{
+		border-color: rgb(192, 177, 165);
+	}
 	</style>
 </head>
 <body>
+	<div class="candidateList">
+		<table class="candidates">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>抽中率</th>
+					<th>操作
+						<form class="search" action="javascript: alert('搜索功能还在开发中');" autocomplete="off">
+							<input type="text" placeholder="输入名称..." />
+							<button type="submit">搜索</button>
+						</form>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
+				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
+				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
+				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
+				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
+			</tbody>
+		</table>
+		<div class="">
 
+		</div>
+
+	</div>
 
 <script>
 var DATA = {
@@ -20,26 +112,60 @@ var DATA = {
 	number : 0
 }
 
-function Candidate(no,name,prob){
-	this.no = no;
-	this.name = name;
-	this.prob = prob;
-
-	this.addProb = function(){
+var flagType = {
+	normal: 'normal',
+	never: 'never',
+	certain: 'certain'
+}
+/* 表示候选人的类，
+包括三个属性：序号、姓名、选中概率 */
+class Candidate{
+	name = "";
+	_prob = 10;
+	set prob(x){
+		if(x >= 0) 
+			this._prob = x;
+		else 
+			this._prob = 0;
+	}
+	get prob(){
+		return this._prob;
+	}
+	flag = flagType.normal;	
+	constructor(name,prob = 10,flag = flagType.normal){
+		this.name = name;
+		this.prob = prob;
+		this.flag = flag;
+	}
+	addProb(){
 		this.prob += 5;
 	}
-	this.reduceProb = function(){
+	reduceProb(){
 		this.prob -= 5;
-		if(this.prob < 0)
-			this.prob = 0;
 	}
-	this.rename = function(newName){
-		this.name = newName;
+	reName(x){
+		this.name = x;
+	}
+	reFlag(x){
+		this.flag = x;
 	}
 }
 
 window.onload = function(){
-	
+	var hq = new Candidate('hq');
+	var lh = new Candidate('lh',100,flagType.certain);
+	console.log(hq.name,hq.prob,hq.flag);
+	console.log(lh.name,lh.prob,lh.flag);
+	hq.addProb();
+	lh.reduceProb();
+	console.log(hq.name,hq.prob,hq.flag);
+	console.log(lh.name,lh.prob,lh.flag);
+	hq.reduceProb();
+	hq.reduceProb();
+	hq.reduceProb();
+	console.log(hq.name,hq.prob,hq.flag);
+	hq.reduceProb();
+	console.log(hq.name,hq.prob,hq.flag);
 }
 </script>
 </body>
