@@ -18,30 +18,39 @@
 		top: 5vh;
 		left: 0;
 		box-sizing: border-box;
-		border: 2px solid rgb(58, 30, 3);
+		border: 2px solid #010103;
 		border-radius: 15px;
 		padding: 20px;
-		background-color: rgb(255, 251, 240);
+		background-color: #f9cb04;
 	}
 	.candidateList .candidates{
 		width: 100%;
-		border-width: 1px;
-		border-collapse:collapse;
+		height: 100%;
+		overflow-y: auto;
+	}
+	.candidates table{
+		border-collapse: collapse;
+		width: 100%;
+	}
+	table tbody{
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 	table tr{
-		color: rgb(92, 86, 37);
+		color: #010103;
 		height: 25px;
 		line-height: 25px;
 	}
 	table tr:nth-child(even){
-		background-color: rgb(243, 239, 235);
+		background-color: #e2bc0f;
 	}
 	table tr td,table tr th{
 		padding-left: 40px;
 		text-align: left;
 	}
 	table tr th{
-		border-bottom: 1px solid rgb(172, 65, 16);
+		border-bottom: 1px solid #010103;
 	}
 	.search{
 		width: 50%;
@@ -52,8 +61,8 @@
 		width: 75%;
 		background: transparent;
 		border: none;
-		border-bottom: 1px solid rgb(202, 73, 13);
-		color: rgb(80, 74, 19);
+		border-bottom: 1px solid #534400;
+		color: #010103;
 		font-size: 16px;
 		padding-left: 5px;
 		padding-right: 5px;
@@ -61,11 +70,11 @@
 	}
 	.search button{
 		width: 20%;
-		background: transparent;
-		border: 1px solid  rgb(85, 82, 57);
+		background: #dab200;
+		border: 1px solid #a38602;
 		border-radius: 3px;
 		font-size: 14px;
-		color: rgb(58, 54, 23);
+		color: #3b3b3b;
 		text-overflow: clip;
 		white-space: nowrap;
 		overflow: hidden;
@@ -73,34 +82,50 @@
 		text-align: center;
 	}
 	.search button:hover{
-		border-color: rgb(192, 177, 165);
+		border-color: #f8e590;
+		background: #f0c400;
+	}
+	td span{
+		margin-left: 5px;
+		padding: 2px;
+		cursor: pointer;
+		user-select: none;
+	}
+	td span:first-child{
+		margin-left: 0;
+		padding-left: 0;
+	}
+	td span:hover{
+		color: #ffffff;
+	}
+	tbody tr.focus{
+		background-color: rgb(143, 143, 143);
+	}
+	tbody tr:hover{
+		background-color: rgb(177, 177, 177);
 	}
 	</style>
 </head>
 <body>
 	<div class="candidateList">
-		<table class="candidates">
-			<thead>
-				<tr>
-					<th>姓名</th>
-					<th>抽中率</th>
-					<th>操作
-						<form class="search" action="javascript: alert('搜索功能还在开发中');" autocomplete="off">
-							<input type="text" placeholder="输入名称..." />
-							<button type="submit">搜索</button>
-						</form>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
-				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
-				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
-				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
-				<tr><td>何沁</td><td>10</td><td><span>必不中</span><span>减少概率</span><span>增加概率</span><span>必中</span></td></tr>
-			</tbody>
-		</table>
-		<div class="">
+		<div class="candidates">
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>抽中率</th>
+						<th>操作
+							<form class="search" action="javascript: searchCan();" autocomplete="off">
+								<input type="text" placeholder="输入名称..." name="name" />
+								<button type="submit">搜索</button>
+							</form>
+						</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div>
 
 		</div>
 
@@ -108,8 +133,8 @@
 
 <script>
 var DATA = {
-	cans : [],
-	number : 0
+	cans : [],			// 所有的候选人
+	number : 0   		// 要抽取的人数
 }
 
 var flagType = {
@@ -147,25 +172,111 @@ class Candidate{
 		this.name = x;
 	}
 	reFlag(x){
-		this.flag = x;
+		if(this.flag == x){
+			this.flag = flagType.normal;
+		}else{
+			this.flag = x;
+		}
+	}
+	showProb(){
+		if(this.flag == flagType.normal){
+			return this.prob;
+		}else if(this.flag == flagType.never){
+			return "必不中";
+		}else{
+			return "必中";
+		}
 	}
 }
 
+function searchCan(){
+	cleanAllFocus();
+	var theName = document.getElementsByName('name').item(0).value;
+	if(!theName) return;
+	var cans = [];
+	DATA.cans.forEach((x,i)=>{
+		if(x.name.match(theName)){
+			cans.push(i);
+		}
+	})
+	let canss = document.querySelectorAll('tbody tr');
+	cans.forEach((x)=>{
+		toggleFocusForSomeone(canss.item(x));
+	})
+}
+
+function cleanAllFocus(){
+	var cans = document.querySelectorAll('tbody tr');
+	for(let x of Array.from(cans)){
+		x.setAttribute('class','');
+	}
+}
+function toggleFocusForSomeone(x){
+	if(x.setAttribute){
+		if(x.getAttribute('class').match('focus')){
+			x.setAttribute('class','');
+		}else{
+			x.setAttribute('class','focus');
+		}
+	}
+}
+
+function createCansTable(){
+	var table = document.querySelector('tbody');
+	table.innerHTML = "";
+	DATA.cans.forEach(function(x,i){
+		var can = document.createElement('tr');
+		var name = document.createElement('td');
+		name.innerText = x.name;
+		var prob = document.createElement('td');
+		prob.innerText = x.showProb();
+		can.appendChild(name);
+		can.appendChild(prob);
+		var buttons = document.createElement('td');
+		can.appendChild(buttons);
+		var button1 = document.createElement('span');
+		button1.innerText = "必不中";
+		button1.addEventListener('click',()=>{
+			DATA.cans[i].reFlag(flagType.never);
+			createCansTable();
+		})
+		buttons.appendChild(button1);
+		var button2 = document.createElement('span');
+		button2.innerText = "减小概率";
+		button2.addEventListener('click',()=>{
+			DATA.cans[i].reduceProb();
+			createCansTable();
+		})
+		buttons.appendChild(button2);
+		var button3 = document.createElement('span');
+		button3.innerText = "增大概率";
+		button3.addEventListener('click',()=>{
+			DATA.cans[i].addProb();
+			createCansTable();
+		})
+		buttons.appendChild(button3);
+		var button4 = document.createElement('span');
+		button4.innerText = "必中";
+		button4.addEventListener('click',()=>{
+			DATA.cans[i].reFlag(flagType.certain);
+			createCansTable();
+		})
+		buttons.appendChild(button4);
+		table.appendChild(can);
+	});
+}
+
 window.onload = function(){
-	var hq = new Candidate('hq');
-	var lh = new Candidate('lh',100,flagType.certain);
-	console.log(hq.name,hq.prob,hq.flag);
-	console.log(lh.name,lh.prob,lh.flag);
-	hq.addProb();
-	lh.reduceProb();
-	console.log(hq.name,hq.prob,hq.flag);
-	console.log(lh.name,lh.prob,lh.flag);
-	hq.reduceProb();
-	hq.reduceProb();
-	hq.reduceProb();
-	console.log(hq.name,hq.prob,hq.flag);
-	hq.reduceProb();
-	console.log(hq.name,hq.prob,hq.flag);
+	for(let i=0;i<10;i++){
+		var hq = new Candidate('何沁');
+		DATA.cans.push(hq);
+		var lh = new Candidate('lh',100,flagType.certain);
+		DATA.cans.push(lh);
+		var hy = new Candidate('hy',5,flagType.never);
+		DATA.cans.push(hy);
+	}
+	createCansTable();
+	cleanAllFocus();
 }
 </script>
 </body>

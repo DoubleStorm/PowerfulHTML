@@ -14,7 +14,7 @@ var theLinks = {
             ,{name:"ag-Grid 官网",leftClick:"https://www.ag-grid.com/example.php#/"}
             ,{name:"RxJS 官方教程",leftClick:"https://cn.rx.js.org/manual/overview.html",rightClick:"https://rxjs.dev/guide/overview",tip:"多学学JS异步编程的其他方式（左键中文文档，右键英文文档）"}
             ,{name:"Sass 中文文档",leftClick:"https://www.sass.hk/docs/"}
-            ,{name:"node 中文网",leftClick:"https://www.npmjs.cn/"}
+            ,{name:"npm 中文网",leftClick:"https://www.npmjs.cn/"}
             ,{name:"CSS 参考手册",leftClick:"http://css.doyoe.com/",tip:"web 前端开发参考手册系列"}
             ,{name:"W3C 官网",leftClick:"https://www.chinaw3c.org/",rightClick:"https://www.w3.org/",tip:"查看 W3C 标准"}
             ,{name:"HTML 字符实体参考",leftClick:"https://www.w3school.com.cn/tags/html_ref_entities.html"}
