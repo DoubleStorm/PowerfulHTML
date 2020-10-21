@@ -16,7 +16,7 @@
 		min-height: 300px;
 		position: absolute;
 		top: 5vh;
-		left: 0;
+		left: -90vw;
 		box-sizing: border-box;
 		border: 2px solid #010103;
 		border-radius: 15px;
@@ -24,6 +24,8 @@
 		padding-bottom: 10px;
 		background-color: #f9cb04;
 		overflow: hidden;
+		z-index: 10;
+		transition: left .8s ease;
 	}
 	.candidateList .candidates{
 		width: 100%;
@@ -50,6 +52,9 @@
 	table tr td,table tr th{
 		padding-left: 40px;
 		text-align: left;
+	}
+	table tr td:first-child{
+		max-width: 100px;
 	}
 	table tr th{
 		border-bottom: 1px solid #010103;
@@ -176,9 +181,99 @@
 		color: #635d45;
 		background: #f0c400;
 	}
+	.addForms form{
+		height: 100%;
+	}
+	.addForms textarea{
+		width: 100%;
+		height: 50%;
+		resize: vertical;
+		max-height: 50%;
+		min-height: 20%;
+	}
+	.candidateToggleBtn{
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 11;
+		width: 50px;
+		border-radius: 10px 0 0 10px;
+		border: 3px double #010103;
+		border-right: none;
+		background-color: #f9cb04;
+		text-align: center;
+		padding: 10px 5px;
+		cursor: pointer;
+		user-select: none;
+	}
+	.candidateToggleBtn:hover{
+		color: #e2e2e2;
+		border-color: #f9cb64;
+		background-color: #362c00;
+	}
+	.theButton{
+		width: 200px;
+		height: 200px;
+		background-color: #f9cb04;
+		border-radius: 50%;
+		border: 5px solid #010103;
+		position: absolute;
+		top: 0;bottom: 0;left: 0;right: 0;
+		margin:auto;
+		z-index: 4;
+		overflow: hidden;
+	}
+	.theButton .rightCircle{
+		width: 50%;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: #1f1f25;
+		z-index: 5;
+	}
+	.theButton .small{
+		width: 50%;
+		height: 50%;
+		position: absolute;
+		z-index: 6;
+		left: 25%;
+		border-radius: 50%;
+	}
+	.small.topCircle{
+		background-color: #1f1f25;
+		top: 0;
+	}
+	.small.bottomCircle{
+		background-color: #f9cb04;
+		bottom: 0;
+	}
+	.theButton .info{
+		font-size: 18px;
+		position: absolute;
+		z-index: 8;
+	}
+	.info.totalCan{
+		color: #1f1f25;
+		bottom: 40px;
+		right: 36%;
+	}
+	.info.luckyNum{
+		color:#f9cb04;
+		top: 40px;
+		left: 36%;
+	}
 	</style>
 </head>
 <body>
+	<div class="theButton">
+		<div class="rightCircle"></div>
+		<div class="small topCircle"></div>
+		<div class="small bottomCircle"></div>
+		<div class="info totalCan">共1000人</div>
+		<div class="info luckyNum">抽取 50 人</div>
+	</div>
 	<div class="candidateList">
 		<div class="candidates">
 			<table>
@@ -199,6 +294,7 @@
 		</div>
 		<div class="addition">
 			<button class="button1" onclick="addCan()">手动添加候选人</button>
+			<button class="button2" onclick="addCans()">快捷导入多名候选人</button>
 		</div>
 		<div class="addForm">
 			<form autocomplete="off" action='javascript: addOneCan();'>
@@ -210,8 +306,15 @@
 				<button type="reset" onclick="closeForm()">取消</button>
 			</form>
 		</div>
+		<div class="addForm addForms">
+			<form autocomplete="off" action="javascript: addSomeCan();">
+				<textarea name="canNames" required placeholder="在此处输入多个候选人，用空格分隔"></textarea>
+				<button type="submit">确定</button>
+				<button type="reset" onclick="closeForm2()">取消</button>
+			</form>
+		</div>
 	</div>
-
+	<div class="candidateToggleBtn" onclick="toggleCanList()">打开<br/>候选人<br/>名单</div>
 <script>
 var DATA = {
 	cans : [],			// 所有的候选人
@@ -270,6 +373,33 @@ class Candidate{
 	}
 }
 
+function toggleCanList(){
+	var table = document.getElementsByClassName('candidateList').item(0);
+	if(!table.style.left || table.style.left == '-90vw'){
+		table.style.left = '0';
+	}else{
+		table.style.left = '-90vw';
+	}
+}
+
+function addSomeCan(){
+	var names = document.getElementsByName('canNames').item(0).value;
+	var nameArr = names.trim().split(/\s+/);
+	DATA.cans = [];
+	nameArr.forEach((x)=>{
+		var can = new Candidate(x);
+		DATA.cans.push(can);
+	})
+	createCansTable();
+}
+function closeForm2(){
+	document.getElementsByClassName('addForm').item(1).style.right = '-400px';
+}
+function addCans(){
+	closeForm();
+	document.getElementsByClassName('addForm').item(1).style.right = '0';
+}
+
 function addOneCan(){
 	var name = document.getElementsByName('canName').item(0).value;
 	var pros = document.getElementsByName('canPros').item(0).value;
@@ -289,6 +419,7 @@ function closeForm(){
 	document.getElementsByClassName('addForm').item(0).style.right = '-400px';
 }
 function addCan(){
+	closeForm2();
 	document.getElementsByClassName('addForm').item(0).style.right = '0';
 }
 
