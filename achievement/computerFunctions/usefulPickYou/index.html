@@ -223,6 +223,7 @@
 		margin:auto;
 		z-index: 4;
 		overflow: hidden;
+		transition: all .8s ease;
 	}
 	.theButton .rightCircle{
 		width: 50%;
@@ -252,27 +253,173 @@
 	.theButton .info{
 		font-size: 18px;
 		position: absolute;
+		margin: 0 auto;
+		width: max-content;
 		z-index: 8;
 	}
 	.info.totalCan{
 		color: #1f1f25;
 		bottom: 40px;
-		right: 36%;
+		left: 0;
+		right: 0;
+		padding-right: 30px;
 	}
 	.info.luckyNum{
 		color:#f9cb04;
 		top: 40px;
-		left: 36%;
+		left: 0;
+		right: 0;
+		padding-left: 40px;
+	}
+	.info span{
+		padding: 0 2px;
+	}
+	.theTriggerButton{
+		width: 250px;
+		height: 150px;
+		position: absolute;
+		left: 0;right: 0;
+		margin: 0 auto;
+		top: 50%;
+		padding: 135px 0 0;
+	}
+	.theTriggerButton .message{
+		height: 30px;
+		width: 100%;
+		text-align: center;
+		text-overflow: clip;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.theTriggerButton .message span{
+		margin: 0 4px;
+	}
+	.theTriggerButton .message input{
+		width: 60px;
+		background: none;
+		border: none;
+		border-bottom: 1px solid #010103;
+		text-align: center;
+		margin: 0 4px;
+	}
+	.theTriggerButton button{
+		display: block;
+		margin: 10px auto;
+		padding: 5px 35px;
+		color: #010103;
+		border: none;
+		background-color: #f9cb04;
+	}
+	.theTriggerButton button:hover{
+		color: #efefef;
+		background-color: #010103;
+	}
+	.theTriggerButton .errorMessage{
+		width: 100%;
+		margin-top: 10px;
+		text-align: center;
+		font-weight: bold;
+		color: #ed0000;
+		display: none;
+	}
+	.luckyCansList{
+		width: 400px;
+		height: 100vh;
+		padding: 40px 40px 20px;
+		position: absolute;
+		left: 0; right: 0;
+		top: -100vh;
+		margin: 0 auto;
+		box-sizing: border-box;
+		border: 6px double #010103;
+		z-index: 14;
+		background-color: white;
+		transition: top 1s ease;
+		overflow: hidden;
+	}
+	.luckyCansList .closeButton{
+		width: 38px;
+		height: 38px;
+		box-sizing: border-box;
+		position: absolute;
+		right: 1px;
+		top: 1px;
+		z-index: 15;
+		line-height: 38px;
+		color: #010103;
+		font-size: 24px;
+		text-align: center;
+		user-select: none;
+	}
+	.luckyCansList .closeButton:hover{
+		background-color: rgba(54, 54, 54, 0.884);
+		color: rgb(255, 255, 255);
+	}
+	.luckyCansList ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		height: 100%;
+		overflow-y: auto;
+	}
+	.luckyCansList ul li{
+		width: 100%;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		border: 2px solid gray;
+		border-top: none;
+		box-sizing: border-box;
+		position: relative;
+		left: -100%;
+		top: 0;
+		display: none;
+		animation: cansListIn .8s ease .2s forwards 1;
+	}
+	.luckyCansList ul li:first-child{
+		border-top: 2px solid gray;
+	}
+	.luckyCansList ul li:nth-child(even){
+		background-color: rgba(235, 235, 235, 0.438);
+	}
+	.luckyCansList .numMessage{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		font-size: 12px;
+		border-radius: 5px;
+		background-color: rgba(235, 235, 235, 0.438);
+	}
+	@keyframes cansListIn{
+		from{left: -100%;}
+		to{left:0;}
 	}
 	</style>
 </head>
 <body>
+	<div class="luckyCansList">
+	<div class="closeButton" onclick="document.querySelector('.luckyCansList').style.top = '-100vh';">X</div>
+		<ul></ul>
+		<div class="numMessage"></div>
+	</div>
 	<div class="theButton">
 		<div class="rightCircle"></div>
 		<div class="small topCircle"></div>
 		<div class="small bottomCircle"></div>
-		<div class="info totalCan">共1000人</div>
-		<div class="info luckyNum">抽取 50 人</div>
+		<div class="info totalCan">共<span>10000</span>人</div>
+		<div class="info luckyNum">抽取<span>0</span>人</div>
+	</div>
+	<div class="theTriggerButton">
+		<form autocomplete="off" action="javascript: beginSelect();">
+			<div class="message">
+				从<span></span>人中抽取<input type="number" name="luckyNum" min="0" step="1" value="0" />人
+			 </div>
+			<button type="submit">开始抽取</button>
+		</form>
+		<div class="errorMessage">抽取人数不能为零</div>
 	</div>
 	<div class="candidateList">
 		<div class="candidates">
@@ -295,6 +442,7 @@
 		<div class="addition">
 			<button class="button1" onclick="addCan()">手动添加候选人</button>
 			<button class="button2" onclick="addCans()">快捷导入多名候选人</button>
+			<button class="button2" onclick="removeCans()">清空列表</button>
 		</div>
 		<div class="addForm">
 			<form autocomplete="off" action='javascript: addOneCan();'>
@@ -317,8 +465,7 @@
 	<div class="candidateToggleBtn" onclick="toggleCanList()">打开<br/>候选人<br/>名单</div>
 <script>
 var DATA = {
-	cans : [],			// 所有的候选人
-	number : 0   		// 要抽取的人数
+	cans : []			// 所有的候选人
 }
 
 var flagType = {
@@ -373,22 +520,99 @@ class Candidate{
 	}
 }
 
+function beginSelect(){
+	var totalCanNum = DATA.cans.length;
+	var selectCanNum = document.getElementsByName('luckyNum').item(0).value;
+	if(selectCanNum == 0){
+		document.querySelector('.theTriggerButton .errorMessage').style.display = 'block'; 
+		return;
+	}
+	document.querySelector('.theTriggerButton .errorMessage').style.display = 'none'; 
+	document.querySelector('.theButton .info.luckyNum span').innerText = selectCanNum;
+	var theButton = document.querySelector('.theButton');
+	theButton.style.transform = 'rotate(720deg)';
+	setTimeout(()=>{
+		theButton.style.transform = '';
+	},1000);
+	var luckyList = document.querySelector('.luckyCansList ul');
+	luckyList.innerHTML = "";
+	for(let x of selectedLuckyCans(selectCanNum)){
+		luckyList.appendChild(createOneLuckyList(x));
+	}
+	document.querySelector('.luckyCansList .numMessage').innerText = luckyList.childNodes.length + ' / ' + selectCanNum;
+	document.querySelector('.luckyCansList').style.top = '0';
+	var luckysDOM = Array.from(document.querySelectorAll('.luckyCansList ul li'))
+	for(let i in luckysDOM){
+		setTimeout(()=>{
+			luckysDOM[i].style.display = 'block';
+		},30*i)
+	}
+}
+function createOneLuckyList(name){
+	var one = document.createElement('li');
+	one.innerText = name;
+	return one;
+}
+function selectedLuckyCans(num){
+	var cans = [];
+	var lucky = [];
+	DATA.cans.forEach(function(x){
+		if(x.flag == flagType.normal){
+			cans.push(x);
+		}else if(x.flag == flagType.certain){
+			lucky.push(x.name);
+		}
+	})
+	var selectedNum = num - lucky.length;
+	for(let i=0;i<selectedNum;i++){
+		if(cans.length <= 0) 
+			break;
+		lucky.push(selectedOneLucky(cans));
+	}
+	return lucky.length > num ? lucky.slice(0,num) : lucky;
+}
+function selectedOneLucky(cans){
+	var totalNum = 0;
+	for(let x of cans){
+		totalNum += x.prob;
+	}
+	var num = Math.ceil(Math.random()*totalNum);
+	var i=-1;
+	while(num > 0){
+		i++;
+		num -= cans[i].prob;
+	}
+	return cans.splice(i,1)[0].name;
+}
+
+function showTotalNum(){
+	document.querySelector('.info span').innerText = DATA.cans.length;
+	document.querySelector('.theTriggerButton .message span').innerText = DATA.cans.length;
+	document.querySelector('.theTriggerButton input').setAttribute('max',DATA.cans.length);
+}
+
 function toggleCanList(){
 	var table = document.getElementsByClassName('candidateList').item(0);
+	var button = document.getElementsByClassName('candidateToggleBtn').item(0);
 	if(!table.style.left || table.style.left == '-90vw'){
 		table.style.left = '0';
+		button.innerHTML = '关闭<br/>候选人<br/>名单';
 	}else{
 		table.style.left = '-90vw';
+		button.innerHTML = '打开<br/>候选人<br/>名单';
+		showTotalNum();
 	}
 }
 
 function addSomeCan(){
 	var names = document.getElementsByName('canNames').item(0).value;
-	var nameArr = names.trim().split(/\s+/);
+	var nameArr = names.split(/\s+/);
 	DATA.cans = [];
 	nameArr.forEach((x)=>{
-		var can = new Candidate(x);
-		DATA.cans.push(can);
+		if(x){
+			var can = new Candidate(x);
+			DATA.cans.push(can);
+		}
 	})
 	createCansTable();
 }
@@ -457,10 +681,14 @@ function toggleFocusForSomeone(x){
 
 function createCansTable(){
 	var table = document.querySelector('tbody');
-	table.innerHTML = "";
+	removeCans();
 	DATA.cans.forEach(function(x){
 		table.appendChild(createOneCan(x));
 	});
+}
+function removeCans(){
+	var table = document.querySelector('tbody');
+	table.innerHTML = "";
 }
 function createOneCan(x){
 	var can = document.createElement('tr');
@@ -522,16 +750,22 @@ function createOneCan(x){
 }
 
 window.onload = function(){
-	for(let i=0;i<3;i++){
-		var hq = new Candidate('何沁');
-		DATA.cans.push(hq);
-		var lh = new Candidate('lh',100,flagType.certain);
-		DATA.cans.push(lh);
-		var hy = new Candidate('hy',5,flagType.never);
-		DATA.cans.push(hy);
-	}
+	DATA.cans.push(new Candidate('米开朗基罗',10));
+	DATA.cans.push(new Candidate('波塞冬',20));
+	DATA.cans.push(new Candidate('麦克白',15));
+	DATA.cans.push(new Candidate('穷奇',5));
+	DATA.cans.push(new Candidate('达芬奇',20));
+	DATA.cans.push(new Candidate('普希金',25));
+	DATA.cans.push(new Candidate('饕餮',0));
+	DATA.cans.push(new Candidate('神仙姐姐',20,flagType.certain));
+	DATA.cans.push(new Candidate('墨西哥哥',25));
+	DATA.cans.push(new Candidate('阿拉伯伯',10));
+	DATA.cans.push(new Candidate('拉斐尔',5));
+	DATA.cans.push(new Candidate('老罗和他的朋友们',20,flagType.never));
+	DATA.cans.push(new Candidate('蚩尤',0));
 	createCansTable();
 	cleanAllFocus();
+	showTotalNum();
 }
 </script>
 </body>
