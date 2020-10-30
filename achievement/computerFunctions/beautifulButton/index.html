@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>千奇百怪的按钮们</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+		body{
+			width: 100%;
+			line-height: 0;
+			font-size: 0;
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			float: left;
+			width: 50%;
+			min-width: 340px;
+		}
+		li{
+			width: max-content;
+			margin: 40px auto;
+		}
+		button{
+			width: 220px;
+			height: 80px;
+			border-radius: 10px;
+			border: none;
+			text-align: center;
+			font-size: 26px;
+			line-height: 80px;
+			padding: 0;
+			color: #FFFFFF;
+			overflow: hidden;
+			position: relative;
+			user-select: none;
+		}
+		button:focus{
+			border: none;
+			outline: none;
+		}
+		.hoverButton1{
+			background-color: #f4511e;
+			box-shadow: 5px 5px 9px #f56b41;
+			text-align: left;
+			padding-left: 80px;
+			transition: padding .4s ease;
+		}
+		.hoverButton1:hover{
+			padding-left: 70px;
+		}
+		.hoverButton1:active{
+			box-shadow: 3px 3px 9px #a03e20;
+		}
+		.hoverButton1::after{
+			content: '》';
+			margin: auto 0;
+			width: max-content;
+			height: max-content;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 35px;
+			opacity: 0;
+			padding-top: 2px;
+			transition: all .4s ease;
+		}
+		.hoverButton1:hover::after {
+			opacity: 1;
+			right: 50px;
+		}
+		.clickButton1{
+			background-color: #4CAF50;
+			border-radius: 0;
+			overflow: hidden;
+		}
+		.clickButton1:after { 
+			content: ""; 
+			background: #90EE90; 
+			display: block; 
+			position: absolute; 
+			padding-top: 300%; 
+			padding-left: 350%; 
+			margin-left: -20px !important; 
+			margin-top: -120%; 
+			opacity: 0; 
+			transition: all .8s;
+		}
+		.clickButton1:active:after{ 
+			padding: 0; 
+			margin: 0; 
+			opacity: 1; 
+			transition: 0s;
+		}
+		.clickButton2{
+			cursor: pointer; 
+			background-color: #334bd1; 
+			box-shadow: 0 9px #999;
+		}
+		.clickButton2:hover {
+			background-color: #1d31a3;
+		}
+		.clickButton2:active{ 
+			background-color: #1d31a3; 
+			box-shadow: 0 5px #666; 
+			transform: translateY(4px); 
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><button class="hoverButton1">Hover</button></li>
+	</ul>
+	<ul>
+		<li><button class="clickButton1">Click</button></li>
+		<li><button class="clickButton2">Click</button></li>
+	</ul>
+
+<script>
+
+</script>
+</body>
+</html>
