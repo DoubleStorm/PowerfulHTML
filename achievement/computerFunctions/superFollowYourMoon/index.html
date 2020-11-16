@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>众星捧月</title>
+	<link rel="Shortcut Icon" href="./asset/img/ICON-s.png">  
+	<link rel="Bookmark" href="./asset/img/ICON-s.png">
+	<style>
+	body{
+		margin: 0;
+		padding: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgb(0, 0, 100);
+	}
+	.theMoon{
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background-color: rgb(235, 235, 235);
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.star{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		background-color: rgb(255, 242, 167);
+		clip-path: polygon(0 0,50% 20%,100% 0,80% 50%,100% 100%,50% 80%,0 100%,20% 50%);
+	}
+	.NO1{
+		left: -30px;
+		top: 10px;
+		transform: rotate(45deg);
+	}
+	</style>
+</head>
+<body>
+	<div class="theMoon">
+		<div class="star NO1"></div>
+	</div>
+<script>
+
+</script>
+</body>
+</html>
