@@ -11,7 +11,7 @@
 		padding: 0;
 		width: 100vw;
 		height: 100vh;
-		background-color: rgb(0, 0, 100);
+		background-color: rgb(1, 1, 70);
 	}
 	.theMoon{
 		position: absolute;
@@ -27,22 +27,114 @@
 		position: absolute;
 		width: 20px;
 		height: 20px;
+		margin-left: -10px;
+		margin-top: -10px;
 		background-color: rgb(255, 242, 167);
 		clip-path: polygon(0 0,50% 20%,100% 0,80% 50%,100% 100%,50% 80%,0 100%,20% 50%);
 	}
+	.star::after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: gray;
+		animation: blink 1s ease infinite alternate;
+	}
+	@keyframes blink{
+		from{opacity: 0;}
+		to{opacity: .6;}
+	}
 	.NO1{
-		left: -30px;
-		top: 10px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(45deg);
+	}
+	.NO2{
+		left: 100px;
+		top: 0px;
+		transform: rotate(45deg);
+	}
+	.NO3{
+		left: 100px;
+		top: 100px;
+		transform: rotate(45deg);
+	}
+	.NO4{
+		left: 0px;
+		top: 100px;
+		transform: rotate(45deg);
+	}
+	.NO5{
+		left: 40px;
+		top: 110px;
 		transform: rotate(45deg);
 	}
 	</style>
 </head>
 <body>
 	<div class="theMoon">
-		<div class="star NO1"></div>
+		<!-- <div class="star NO1"></div>
+		<div class="star NO2"></div>
+		<div class="star NO3"></div>
+		<div class="star NO4"></div>
+		<div class="star NO5"></div> -->
 	</div>
 <script>
+/* 
+	星星到月亮的距离的平方为 5000 基本单位
+	月亮圆心位置 (50,50)
 
+	星星的随机属性包括：
+		数量：5 - 7
+		横坐标：0 - 100
+		纵坐标：根据横坐标计算
+		闪烁速度：0.5s - 1s
+		闪烁延迟： 0s - 0.5s
+		旋转角度：22deg - 68deg
+		放大倍数：0.7 - 1.3
+*/
+var moonData = {
+	position: {x:50,y:50},
+	distance: 5000
+}
+
+function starRandom(){
+	var x = Math.round(Math.random()*100);
+	var y = Math.round(Math.sqrt(5000 - Math.pow(Math.abs(x-50),2)));
+	var flag = Math.random()
+	if(flag >= 0.5)
+		y += 50 + Math.round(flag*15);
+	else
+		y = 50 - y - Math.round(flag*15);
+	var blinkSpeed = (Math.random()*0.5+0.5).toFixed(2);
+	var blinkDelay = (Math.random()*0.5).toFixed(2);
+	var transformRotate = (Math.random()*46+22).toFixed(2);
+	var transformScale = (Math.random()*0.6+0.7).toFixed(2);
+	return {
+		left: x+'px',
+		top: y+'px',
+		blink: {speed: blinkSpeed+'s', delay: blinkDelay+'s'},
+		transform: {rotate: transformRotate+'deg', scale: transformScale}
+	};
+}
+
+function createStar(para){
+	var star = document.createElement('div');
+	star.setAttribute('class','star');
+	star.style.left = para?.left;
+	star.style.top = para?.top;
+	var transformStr = para?.transform ? 'rotate(' + para.transform.rotate + ')' : '';
+	transformStr += para?.transform ? 'scale(' + para.transform.scale + ')' : '';
+	star.style.transform = transformStr;
+	var theMoon = document.getElementsByClassName('theMoon').item(0);
+	theMoon.appendChild(star);
+}
+window.onload = function(){
+	var num = Math.round(Math.random()*2) + 5;
+	for(let i=0;i<num;i++){
+		createStar(starRandom());
+	}
+}
 </script>
 </body>
 </html>
