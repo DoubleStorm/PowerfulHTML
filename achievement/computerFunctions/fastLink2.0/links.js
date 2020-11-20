@@ -24,6 +24,7 @@ var theLinks = {
             ,{name:"Animate.css 参考",leftClick:"http://www.jq22.com/yanshi819",tip:"Animate.css 动画库使用参考"}
             ,{name:"jqcloud 教程",leftClick:"https://blog.csdn.net/qq_21895079/article/details/76853384"}
             ,{name:"jSignature 教程",leftClick:"https://blog.csdn.net/liansehai/article/details/80255294"}
+            ,{name:"MDN Web docs",leftClick:"https://developer.mozilla.org/zh-CN/",tip:"源于开发者，服务开发者"}
         ],[
             {name:"Angular Update Guide",leftClick:"https://update.angular.io/",tip:"Angular 项目升级指导"}
             ,{name:"BootStrap 布局工具",leftClick:"https://www.runoob.com/try/bootstrap/layoutit/",tip:"快速获得 BootStrap 布局结构代码"}
@@ -36,9 +37,9 @@ var theLinks = {
             ,{name:"JS Bin",leftClick:"https://jsbin.com/",tip:"另一个在线前端代码编辑器"}
             ,{name:"Can I use",leftClick:"https://caniuse.com/",tip:"查看 W3C 标准在各浏览器上的支持程度"}
             ,{name:"validator",leftClick:"https://validator.w3.org/",tip:"HTML 页面内容验证器"}
-            ,{name:"MDN Web docs",leftClick:"https://developer.mozilla.org/zh-CN/",tip:"源于开发者，服务开发者"}
         ],[
-            {name:"BootStrap 模板资源网",leftClick:"http://www.bootstrapmb.com/"}
+            {name:"语雀",leftClick:"https://www.yuque.com/dashboard",tip:"在线知识库"}
+            ,{name:"BootStrap 模板资源网",leftClick:"http://www.bootstrapmb.com/"}
             ,{name:"iconfont",leftClick:"https://www.iconfont.cn",tip:"阿里管理的矢量图标库"}
             ,{name:"鸠摩搜书",leftClick:"https://www.jiumodiary.com/",tip:"来这找书！好用！"}
             ,{name:"Pexels",leftClick:"https://www.pexels.com/zh-cn/",tip:"高质量图片下载网站"}
